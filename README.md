@@ -74,7 +74,7 @@ Then looking for references to `0x960` immediate numbers
 0x4B0F:	je		0x4b28
 ...
 ```
-<font size="3" color="grey">The actual operation of the picture, with a color mark</font>
+[screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG1.PNG)
 
 With the Instruction address you can quickly jump there in IDA, and start analysis
 <hr>
@@ -95,7 +95,7 @@ Example: Lists all possible calls to `configWriteAction`
 |- - [0x860]IOThunderboltController::incrementScanCount (0x2909)
 |- - [0x868]IOThunderboltController::decrementScanCount (0x2a45)
 ```
-<font size="3" color="grey">The actual operation of the picture, with a color mark</font>
+[screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG2.PNG)
 
 Correct backtrace in exmple are: `configWriteAction`<- `configWrite` <- `externalMethod`
 
