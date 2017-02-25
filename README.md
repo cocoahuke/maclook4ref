@@ -1,6 +1,8 @@
 # maclook4ref
 Quickly find references to the specified Immediate number, or find the function call of specifies offset, and generate C++ functions call backtrace, The disassembly framework used is [Capstone](http://www.capstone-engine.org/)
 
+[![Contact](https://img.shields.io/badge/contact-@cocoahuke-fbb52b.svg?style=flat)](https://twitter.com/cocoahuke) [![build](https://travis-ci.org/cocoahuke/maclook4ref.svg?branch=master)](https://travis-ci.org/cocoahuke/maclook4ref) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cocoahuke/maclook4ref/blob/master/LICENSE) [![paypal](https://img.shields.io/badge/Donate-PayPal-039ce0.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EQDXSYW8Z23UY)
+
 This tool does not support iOS, its used to analyze kext of Macos
 
 When you statically analyze a kernel extension of a Mac to look for vulnerabilities, you may want to find out where this might exploitable C++ function call come from.
