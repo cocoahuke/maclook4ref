@@ -36,7 +36,7 @@ Lists the vtable offsets for all functions
 2647 [0xd20]IOThunderboltSwitch::wakeLocalPorts
 ...
 ```
-<font size="3" color="grey">`[?]` mean didn't found, The reason usually is the class isn't defined in this binary</font>
+*`[?]` mean didn't found, The reason usually is the class isn't defined in this binary*
 
 `checkArguments` is used to parse the user state parameter, which is mean that place where the call to this function, can be affected from the userland
 <hr>
