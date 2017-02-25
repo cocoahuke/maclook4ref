@@ -6,7 +6,7 @@ Quickly find references to the specified Immediate number, or find the function 
 This tool does not support iOS, its used to analyze kext of Macos
 
 When you statically analyze a kernel extension of a Mac to look for vulnerabilities, you may want to find out where this might exploitable C++ function call come from.
-It may come from a call from a function call from a very complicated `externalMethod`, if it does, then you may get a way to influence or control something about that function.
+It may come from a call from a function call from a very complicated `external Method`, if it does, then you may get a way to influence or control something about that function.
 
 C ++ function calls essentially are jump to a function address that get from vtable with an offset. The address of vtable is fixed relative to the program code, the fixed address will be saved in memory of allocation of the instance, get the vtable address from the instance, and then add an offset to the vtable to get the function address, finally use the instruction jump to there.
 
@@ -74,7 +74,10 @@ maclook4ref "IOThunderboltFamily" 0x960
 0x4B0F:	je		0x4b28
 ...
 ```
-[screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG1.PNG)
+
+<p align="center">
+<img src="IMG1.png" height="360" />
+</p>
 
 With the Instruction address you can quickly jump there in IDA, and start analysis
 
@@ -94,7 +97,10 @@ maclook4ref "IOThunderboltFamily" 0x960 -p 1
 |- - [0x860]IOThunderboltController::incrementScanCount (0x2909)
 |- - [0x868]IOThunderboltController::decrementScanCount (0x2a45)
 ```
-[screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG2.PNG)
+
+<p align="center">
+<img src="IMG2.png" height="360" />
+</p>
 
 Correct backtrace in example are: `configWriteAction`<- `configWrite` <- `externalMethod`
 
