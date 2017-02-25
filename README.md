@@ -74,7 +74,9 @@ maclook4ref "IOThunderboltFamily" 0x960
 0x4B0F:	je		0x4b28
 ...
 ```
-[screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG1.PNG)
+<p align="center">
+<img src="IMG1.PNG" height="360" />
+</p>
 
 With the Instruction address you can quickly jump there in IDA, and start analysis
 
@@ -94,11 +96,14 @@ maclook4ref "IOThunderboltFamily" 0x960 -p 1
 |- - [0x860]IOThunderboltController::incrementScanCount (0x2909)
 |- - [0x868]IOThunderboltController::decrementScanCount (0x2a45)
 ```
-[screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG2.PNG)
+
+<p align="center">
+<img src="IMG2.PNG" height="360" />
+</p>
 
 Correct backtrace in example are: `configWriteAction`<- `configWrite` <- `externalMethod`
 
-The horizontal line on the left indicates the depth, I set the depth limit to 2. The right side is the instruction address  
+The horizontal line on the left indicates the depth, I set the depth limit to 2. The right side is the instruction address.    
 Data will lose meaning if depth over than 2, it's may fall into a loop. So the most credible data is the first line, better belong to the same class
 
 This tool may help you save some time, hope it will help some  
