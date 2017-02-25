@@ -8,7 +8,7 @@ It may come from a call from a function call from a very complicated `external M
 
 C ++ function calls essentially are jump to a function address that get from vtable with an offset. The address of vtable is fixed relative to the program code, the fixed address will be saved in memory of allocation of the instance, get the vtable address from the instance, and then add an offset to the vtable to get the function address, finally use the instruction jump to there.
 
-The principle of this tool is very simple, Scans the entire `__text` section of binary to match specified offset, get the location and print it together with the respective C ++ functions, so can be clear at a glance.
+The principle of this tool is very simple, scan the entire `__text` section of binary to match specified offset, get the location and print it together with the respective C ++ functions, so can be clear at a glance.
 
 Let's see demo
 
