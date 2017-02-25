@@ -3,8 +3,8 @@ Quickly find references to the specified Immediate number, or find the function 
 
 This tool does not support iOS, its used to analyze kext of Macos
 
-When you statically analyze a kernel extension of a Mac look for vulnerabilities, you may want to find out where this might exploitable C++ function call come from.
-It may come from a call from a function call from a very complicated `external Method`, if it does, then you may get a way to influence or control something about that function,
+When you statically analyze a kernel extension of a Mac to look for vulnerabilities, you may want to find out where this might exploitable C++ function call come from.
+It may come from a call from a function call from a very complicated `external Method`, if it does, then you may get a way to influence or control something about that function.
 
 C ++ function calls essentially are jump to a function address that get from vtable with an offset. The address of vtable is fixed relative to the program code, the fixed address will be saved in memory of allocation of the instance, get the vtable address from the instance, and then add an offset to the vtable to get the function address, finally use the instruction jump to there.
 
