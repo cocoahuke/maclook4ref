@@ -98,7 +98,7 @@ maclook4ref "IOThunderboltFamily" 0x960 -p 1
 
 Correct backtrace in example are: `configWriteAction`<- `configWrite` <- `externalMethod`
 
-The horizontal line on the left indicates the depth, I set the depth limit to 2. The right side is the instruction address
+The horizontal line on the left indicates the depth, I set the depth limit to 2. The right side is the instruction address  
 Data will lose meaning if depth over than 2, it's may fall into a loop. So the most credible data is the first line, better belong to the same class
 
 This tool may help you save some time, hope it will help some  
