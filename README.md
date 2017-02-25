@@ -51,26 +51,26 @@ maclook4ref "IOThunderboltFamily" 0x960
 0x455B:	xor		r9d, r9d
 0x455E:	mov		rdi, r12
 0x4561:	mov		rsi, rbx
-0x4564:	call		qword ptr [rax + 0x960]
+0x4564:	call	qword ptr [rax + 0x960]
 0x456A:	mov		r14d, eax
-0x456D:	test		r14d, r14d
+0x456D:	test	r14d, r14d
 
 
 1.in IOThunderboltFamilyUserClient::configWriteAction
 0x48F2:	xor		ecx, ecx
 0x48F4:	xor		r8d, r8d
 0x48F7:	xor		r9d, r9d
-0x48FA:	call		qword ptr [rax + 0x960]
+0x48FA:	call	qword ptr [rax + 0x960]
 0x4900:	mov		r13d, eax
-0x4903:	test		r13d, r13d
+0x4903:	test	r13d, r13d
 
 
 2.in IOThunderboltFamilyUserClient::xDomainRequestAction
 0x4AFE:	xor		r9d, r9d
 0x4B01:	mov		rdi, r12
 0x4B04:	mov		rsi, rbx
-0x4B07:	call		qword ptr [rax + 0x960]
-0x4B0D:	test		eax, eax
+0x4B07:	call	qword ptr [rax + 0x960]
+0x4B0D:	test	eax, eax
 0x4B0F:	je		0x4b28
 ...
 ```
