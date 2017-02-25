@@ -21,11 +21,10 @@ Usage: maclook4ref <target Mac kext path> <hexadecimal offset of seek> [-p <inde
   ```
 ## Tool demo
 
+### Lists the vtable offsets for all functions
 ```
 maclook4ref "IOThunderboltFamily" - -l
 ```
-Lists the vtable offsets for all functions
-
 ```
 ...
 2642 [0x360]IOThunderboltTransmitCommand::_RESERVEDIOThunderboltTransmitCommand31
@@ -39,13 +38,12 @@ Lists the vtable offsets for all functions
 *`[?]` mean didn't found, The reason usually is the class isn't defined in this binary*
 
 `checkArguments` is used to parse the user state parameter, which is mean that place where the call to this function, can be affected from the userland
-<hr>
+
+###Then looking for references to `0x960` immediate numbers
 
 ```
 maclook4ref "IOThunderboltFamily" 0x960
 ```
-Then looking for references to `0x960` immediate numbers
-
 ```
 0.in IOThunderboltFamilyUserClient::plugEvent
 0x455B:	xor		r9d, r9d
@@ -77,14 +75,13 @@ Then looking for references to `0x960` immediate numbers
 [screenshots picture](https://raw.githubusercontent.com/cocoahuke/maclook4ref/master/IMG1.PNG)
 
 With the Instruction address you can quickly jump there in IDA, and start analysis
-<hr>
+
+###Or you want to search for backtracking, list all possible places where function call from
+###Example: Lists all possible calls to `configWriteAction`
 
 ```
 maclook4ref "IOThunderboltFamily" 0x960 -p 1
 ```
-Or you want to search for backtracking, list all possible places where function call from
-Example: Lists all possible calls to `configWriteAction`
-
 ```
 |- [0x988]IOThunderboltFamilyUserClient::configWrite(0x48bd)
 |- - [0x850]IOThunderboltFamilyUserClient::externalMethod(0x3fe2)
