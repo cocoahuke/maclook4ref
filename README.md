@@ -6,7 +6,7 @@ Quickly find references to the specified Immediate number, or find the function 
 This tool does not support iOS, its used to analyze kext of Macos
 
 When you statically analyze a kernel extension of a Mac to look for vulnerabilities, you may want to find out where this might exploitable C++ function call come from.
-It may come from a call from a function call from a very complicated `externalMethod`, if it does, then you may get a way to influence or control something about that function.
+It may come from a call from a function call from a very complicated `::externalMethod`, if it does, then you may get a way to influence or control something about that function.
 
 C ++ function calls essentially are jump to a function address that get from vtable with an offset. The address of vtable is fixed relative to the program code, the fixed address will be saved in memory of allocation of the instance, get the vtable address from the instance, and then add an offset to the vtable to get the function address, finally use the instruction jump to there.
 
@@ -39,7 +39,7 @@ maclook4ref "IOThunderboltFamily" - -l
 ```
 *`[?]` mean didn't found, The reason usually is the class isn't defined in this binary*
 
-`checkArguments` is used to parse the user state parameter, which is mean that place where the call to this function, can be affected from the userland
+`::checkArguments` is used to parse the user state parameter, which is mean that place where the call to this function, can be affected from the userland
 
 ###Then looking for references to `0x960` immediate numbers
 
@@ -74,14 +74,14 @@ maclook4ref "IOThunderboltFamily" 0x960
 0x4B0F:	je		0x4b28
 ...
 ```
-<p align="center">
-<img src="IMG1.PNG" height="360" />
+<p align="left">
+<img src="IMG1.PNG" height="500" />
 </p>
 
 With the Instruction address you can quickly jump there in IDA, and start analysis
 
 ###Or you want to search for backtracking, list all possible places where function call from
-###Example: Lists all possible calls to `configWriteAction`
+###Example: Lists all possible calls to `::configWriteAction`
 
 ```
 maclook4ref "IOThunderboltFamily" 0x960 -p 1
@@ -97,11 +97,11 @@ maclook4ref "IOThunderboltFamily" 0x960 -p 1
 |- - [0x868]IOThunderboltController::decrementScanCount (0x2a45)
 ```
 
-<p align="center">
+<p align="left">
 <img src="IMG2.PNG" height="360" />
 </p>
 
-Correct backtrace in example are: `configWriteAction`<- `configWrite` <- `externalMethod`
+Correct backtrace in example are: `::configWriteAction`<- `::configWrite` <- `::externalMethod`
 
 The horizontal line on the left indicates the depth, I set the depth limit to 2. The right side is the instruction address.    
 Data will lose meaning if depth over than 2, it's may fall into a loop. So the most credible data is the first line, better belong to the same class
